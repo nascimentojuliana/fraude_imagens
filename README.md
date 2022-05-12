@@ -31,6 +31,13 @@ técnicas de pre-processamento como ELA, ou PCA.
 Mode é o modelo utilizado para fine-tunning, como inception ou xception.
 Dimension é a dimesão da imagem, que para inception é 299.
 
+2. Online
+
+2.1. RNA
+pipeline = Pipeline(method='RGB', mode='inception',  dimension=299)
+image = pipeline.pre_process(image_path)
+predict = pipeline.predict(image)
+
 O repositório utiliza códigos de outro repositório: https://github.com/GuidoBartoli/sherloq
 Esse repositório contém a implementação de várias técnicas que são utilizadas por
 peritos forenses em análise de imagens e foi adaptado para poder processar as imagens
