@@ -1,0 +1,15 @@
+tensorflow
+astor
+concurrent-iterator
+keras-applications
+lxml
+opencv-contrib-python-headless
+pandas
+pyside2
+python-magic
+python-magic-bin
+rawpy
+scikit-image
+scikit-learn
+sewar
+xgboost==1.1.1
