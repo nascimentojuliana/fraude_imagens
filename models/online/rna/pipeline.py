@@ -26,7 +26,7 @@ class Pipeline():
 		self.dimension = dimension
 		
 		#self.model1 = self.load_model(self.path_model1)
-		self.path_model = 'data/models/unfreeze/model_{}_{}.h5'.format(mode, method)
+		self.path_model = ''
 
 		if self.path_model:
 			self.model = load_model(self.path_model)

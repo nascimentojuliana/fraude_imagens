@@ -14,7 +14,7 @@ except:
 from lime import lime_image
 
 limiar = 0.8
-image_path = 'data/extração/poc-gmail3/ROBERTO DE ANDRADE DOS SANTOS_rxfRMF26.jpg'
+image_path = ''
 
 pipeline = Pipeline(method='RGB', mode='inception',  dimension=299)
 
@@ -34,6 +34,6 @@ if predito == 1:
 	temp, mask = explanation.get_image_and_mask(explanation.top_labels[0], positive_only=True, num_features=5, hide_rest=False)
 	image = mark_boundaries(temp, mask)
 
-	output = 'data/poc/{}'.format(image_path.split('/')[-1])
+	output = ''
 	
 	imageio.imwrite(output, image)

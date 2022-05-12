@@ -5,7 +5,7 @@ methods = ['RGB']
 
 model_base = 'xception'
 
-df = pd.read_csv('../data/data/tipo_imagem/dataset_final.csv')
+df = pd.read_csv('')
 
 df_train = df[(df.use == 'TRAIN')].reset_index(drop=True)
 
@@ -15,7 +15,7 @@ df_test = df[(df.use == 'TEST')].reset_index(drop=True)
 
 for method in methods:
 
-    path_model_base = '../data/models/{}.h5'.format(model_base)
+    path_model_base = ''
 
     model = Page_Type(path_model_base=path_model_base, dimension = 299)
 
@@ -29,8 +29,8 @@ for method in methods:
 
     model_json = model.to_json()
     
-    with open('../data/models/page_type/model_{}_{}.json'.format(model_base, method), "w") as json_file:
+    with open('', "w") as json_file:
     	json_file.write(model_json)
 
-    model.save('../data/models/page_type/model_{}_{}.h5'.format(model_base, method))
+    model.save('')
     print("Saved model to disk")

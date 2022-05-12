@@ -4,19 +4,15 @@ from odonto.models.DataGenerator import DataGenerator
 from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LogisticRegression
 
-methods = ['RGB']
+methods = ['RGB']ssss
 
-model1 = 'vgg16'
-
-model2 = 'logistic'
-
-df = pd.read_csv('../data/data/dataset.csv')
+df = pd.read_csv('')
 
 #explainer = lime_image.LimeImageExplainer()
 
 for method in methods:
 	
-	path_model3 = '../data/models/page_type/model_xception_RGB.h5'
+	path_model3 = ''
 
 	model_page_type = Page_Type(path_model=path_model3, dimension=self.dimension)
 	

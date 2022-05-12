@@ -9,8 +9,7 @@ class Train():
 
         model_base = 'xception'
 
-        df = pd.read_csv('gs://odonto_fraud_classifier/dataset_treinamento4.csv')
-
+        df = pd.read_csv('')
         df_train = df[(df.use == 'train')].reset_index(drop=True)
 
         df_validate = df[(df.use == 'validate')].reset_index(drop=True)
@@ -19,7 +18,7 @@ class Train():
 
         for method in methods:
 
-            path_model_base = '../data/models/{}.h5'.format(model_base)
+            path_model_base = ''.format(model_base)
 
             model = RNA(path_model_base=path_model_base, dimension = 299)
 
@@ -31,9 +30,9 @@ class Train():
         			    	  batch_size=32,
         			    	  epochs=1000)
 
-            #model_json = model.to_json()
-            #with open('../data/models/unfreeze/model_{}_{}.json'.format(model_base, method), "w") as json_file:
-            #	json_file.write(model_json)
+            model_json = model.to_json()
+            with open('', "w") as json_file:
+            	json_file.write(model_json)
 
-            #model.save('../data/models/unfreeze/model_{}_{}.h5'.format(model_base, method))
-            #print("Saved model to disk")
+            model.save(''.format(model_base, method))
+            print("Saved model to disk")

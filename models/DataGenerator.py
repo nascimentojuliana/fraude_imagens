@@ -51,8 +51,8 @@ class DataGenerator(tf.keras.utils.Sequence):
         if self.method == 'RGB':
             #lst_images = [imagenet_utils.preprocess_input(np.expand_dims(image.img_to_array(image.load_img(im, target_size=(self.dimension , self.dimension))), axis=0), mode='tf')[0] for im self.im_list]
             lst_images = []
-            storage_client = storage.Client(project = 'sas-sandbox-advanced-analytic2')
-            bucket = storage_client.bucket('odonto_fraud_classifier')
+            storage_client = storage.Client(project = '')
+            bucket = storage_client.bucket('')
             for im in self.im_list:
                 #try:
                 blob = bucket.blob(im)
@@ -83,31 +83,6 @@ class DataGenerator(tf.keras.utils.Sequence):
             lst_images =[(self.pre_processing.transform_frequency(cv2.imread(im))) for im in self.im_list]
 
         return np.array(lst_images)
-
-    def pre_process(self, im):
-        try:
-            if self.method == 'RGB':
-                storage_client = storage.Client(project = 'sas-sandbox-advanced-analytic2')
-                #bucket = storage_client.bucket('odonto_fraud_classifier')
-                blob = self.bucket.blob(im)
-                contents = blob.download_as_string()
-                image_data = Image.open(io.BytesIO(contents))
-                imagem = image_data.resize((self.dimension, self.dimension))
-                #imagem = image.load_img(im, target_size=(self.dimension , self.dimension))
-                imagem = image.img_to_array(imagem)
-                imagem = np.expand_dims(imagem, axis=0)
-                imagem = imagenet_utils.preprocess_input(imagem, mode='tf')[0]
-
-            if self.method == 'ELA':
-                imagem = image.load_img(im, target_size=(self.dimension , self.dimension))
-                imagem = image.img_to_array(imagem)
-                imagem = np.expand_dims(imagem, axis=0)
-                imagem = imagenet_utils.preprocess_input(imagem, mode='tf')[0]
-                imagem = self.pre_processing.transform_ela(imagem)
-        except:
-            print(im)
-
-        return imagem
 
     def __len__(self): # compute number of batches to yield 
         return int(math.ceil(len(self.df) / float(self.bsz))) 

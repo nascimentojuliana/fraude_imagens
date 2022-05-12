@@ -4,7 +4,7 @@ from odonto.models.rna.neural_network import RNA
 
 
 class Pipeline():
-	def __init__(self, method='RGB', mode='inception', dimension=None):
+	def __init__(self, method='RGB', mode='xception', dimension=None):
 		self.method = method
 		self.mode = mode
 		self.dimension = dimension
@@ -12,7 +12,7 @@ class Pipeline():
 
 	def predict(self, df, limiar1, limiar2):
 		
-		path_model3 = '../data/models/page_type/model_xception_RGB.h5'
+		path_model3 = '.'
 
 		model_page_type = Page_Type(path_model=path_model3, dimension=self.dimension)
 		
@@ -20,7 +20,7 @@ class Pipeline():
 
 		predictions = predictions[(predictions.predito_pagina == 1)].reset_index(drop=True)
 
-		path_model = '../data/models/unfreeze/model_{}_{}.h5'.format(mode, method)
+		path_model = ''
 
     	model = RNA(path_model=path_model, dimension=299)
 

@@ -65,7 +65,7 @@ class Page_Type():
 					mode="auto", save_freq="epoch", options=None)]
 
 
-		csv_logger = CSVLogger('../data/models/evaluate/page_type/model_{}_unfreeze_log_{}.csv'.format(model_base, method), append=True, separator=';')
+		csv_logger = CSVLogger(''.format(model_base, method), append=True, separator=';')
 
 		# add a global spatial average pooling layer
 		x = base_model.output

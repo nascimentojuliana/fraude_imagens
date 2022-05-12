@@ -38,8 +38,7 @@ class DataGeneratorPredict(tf.keras.utils.Sequence):
                 imagem = imagenet_utils.preprocess_input(imagem, mode='tf')[0]
                 imagem = self.pre_processing.transform_ela(imagem)
         except:
-            print(im)
-            p
+            pass
 
         return imagem
 
