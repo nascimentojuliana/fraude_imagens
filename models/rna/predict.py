@@ -3,7 +3,7 @@ from odonto.models.rna.neural_network import RNA
 
 methods = ['RGB']
 
-mode = 'inception'
+mode = 'xception'
 
 df = pd.read_csv('')
 

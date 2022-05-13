@@ -49,32 +49,14 @@ class DataGenerator(tf.keras.utils.Sequence):
             lst_images =[(self.pre_processing.transform_ela(cv2.imread(im))) for im in self.im_list]
 
         if self.method == 'RGB':
-            #lst_images = [imagenet_utils.preprocess_input(np.expand_dims(image.img_to_array(image.load_img(im, target_size=(self.dimension , self.dimension))), axis=0), mode='tf')[0] for im self.im_list]
             lst_images = []
-            storage_client = storage.Client(project = '')
-            bucket = storage_client.bucket('')
             for im in self.im_list:
                 #try:
-                blob = bucket.blob(im)
-                contents = blob.download_as_string()
-                image_data = Image.open(io.BytesIO(contents))
-                imagem = image_data.resize((self.dimension, self.dimension))
-                #imagem = image.load_img(im, target_size=(self.dimension , self.dimension))
+                imagem = image.load_img(im, target_size=(self.dimension , self.dimension))
                 imagem = image.img_to_array(imagem)
                 imagem = np.expand_dims(imagem, axis=0)
                 imagem = imagenet_utils.preprocess_input(imagem, mode='tf')[0]
                 lst_images.append(imagem)
-
-
-                #except:
-                #    print(im)
-                #    print('error')
-            
-            #lst_images =[(imagenet_utils.preprocess_input
-            #    (x=np.expand_dims
-            #        (image.img_to_array
-            #            (self.load(im)), axis=0), mode='tf'))[0] for im in self.im_list]
-            #lst_images = [print((cv2.resize(cv2.imread(im), (299, 299)))) for im in self.im_list]
 
         if self.method == 'GRA':
             lst_images =[(self.pre_processing.transform_gradient(cv2.imread(im))) for im in self.im_list]

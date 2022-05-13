@@ -4,7 +4,7 @@ from odonto.models.DataGenerator import DataGenerator
 
 methods = ['RGB']
 
-mode = 'inception'
+mode = 'xception'
 
 df = pd.read_csv('')
 

@@ -14,21 +14,6 @@ class PreProcessing():
         self.dimension = dimension
         
     def transform_ela_rgb(self, image):
-        # y = loss_curve(image)
-        # points = []
-        # for i, value in enumerate(y):
-        #     index = i+1
-        #     if index<len(y-1):
-        #         value_posterior = y[index]
-        #         if value_posterior < value:
-        #             pass
-        #         else:
-        #             points.append(index)
-        # try:
-        #     qm = min(points)
-        # except:
-        #     qm=100
-
         ela = ElaWidget()
         image_redimensionada = tf.image.resize_with_pad(image, target_height=self.dimension, target_width=self.dimension, method=tf.image.ResizeMethod.BILINEAR,antialias=False)
         image_ela = ela.process(image_redimensionada, qm)
@@ -61,21 +46,6 @@ class PreProcessing():
         return image_pca
 
     def transform_ela(self, image):
-        # y = loss_curve(image)
-        # points = []
-        # for i, value in enumerate(y):
-        #    index = i+1
-        #    if index<len(y-1):
-        #        value_posterior = y[index]
-        #        if value_posterior < value:
-        #            pass
-        #        else:
-        #            points.append(index)
-        # try:
-        #    qm = min(points)
-        # except:
-        #    qm=100
-
         qm=75
 
         ela = ElaWidget()

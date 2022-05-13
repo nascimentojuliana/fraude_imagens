@@ -13,13 +13,13 @@ from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from odonto.models.DataGenerator import DataGenerator
 from odonto.models.DataGenerator_predict import DataGeneratorPredict
 
-# from sklearn.metrics import f1_score
-# from sklearn.metrics import recall_score
-# from sklearn.metrics import roc_curve, auc
-# from sklearn.metrics import accuracy_score
-# from sklearn.metrics import precision_score
-# from sklearn.metrics import confusion_matrix
-#from sklearn.preprocessing import label_binarize
+from sklearn.metrics import f1_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import roc_curve, auc
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import confusion_matrix
+from sklearn.preprocessing import label_binarize
 
 #base_model = ResNet50V2(weights='imagenet', include_top=False)
 #base_model.save('../data/models/resnet50v2.h5')

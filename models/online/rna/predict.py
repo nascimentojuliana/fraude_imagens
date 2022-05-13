@@ -18,22 +18,6 @@ image_path = ''
 
 pipeline = Pipeline(method='RGB', mode='inception',  dimension=299)
 
-explainer = lime_image.LimeImageExplainer()
-
 image = pipeline.pre_process(image_path)
 
 predict = pipeline.predict(image)
-
-if predict[0][1] >= limiar:
-    predito = 1
-else:
-    predito=0 
-
-if predito == 1:
-	explanation = explainer.explain_instance(image[0].astype('double'), pipeline.predict, top_labels=10, hide_color=0, num_samples=1000)
-	temp, mask = explanation.get_image_and_mask(explanation.top_labels[0], positive_only=True, num_features=5, hide_rest=False)
-	image = mark_boundaries(temp, mask)
-
-	output = ''
-	
-	imageio.imwrite(output, image)

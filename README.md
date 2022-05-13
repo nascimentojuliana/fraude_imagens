@@ -1,23 +1,17 @@
-odonto-fraud-classifier
+fraude_imagens
 ==============================
 
-Consta de uma biblioteca que utiliza dois modelos integrados em um pipeline para identificar se uma imagem está fraudada. 
+Consta de uma biblioteca que utiliza modelos integrados em um pipeline para identificar se uma imagem está fraudada. 
 
 * modelos devem ser treinados com imagens fraudadas e não fraudadas
-
-O primeiro modelo separa as imagens de acordo com seu tipo (se é imagem de documento ou outras)
-
-O segundo modelo:
 
 1.uma rede xception pré-treinada, realizando fine-tunning para aprendizado da rede. 
 
 Batch: utilizado para predições em batch com entrada em formato csv. O resultado final é retornado na forma de um score com a probabilidade da imagem ter sido fraudada antes de ser enviado pelo prestador.
 
-Online: utilizado para processo de predição online, ou seja, basta o path da imagem que se quer analisar. O resultado final é a imagem com as áreas suspeitas de adulteração marcadas.
+Online: utilizado para processo de predição online, ou seja, basta o path da imagem que se quer analisar. 
 
-Para utilizar a biblioteca:
-
-O pipeline online é carregado da seguinte forma:
+O pipeline é carregado da seguinte forma:
 
 1. Batch
 

@@ -12,18 +12,10 @@ class Pipeline():
 
 	def predict(self, df, limiar1, limiar2):
 		
-		path_model3 = '.'
-
-		model_page_type = Page_Type(path_model=path_model3, dimension=self.dimension)
-		
-		predictions = model_page_type.predict(df=df, method=self.method, batch_size=24, limiar=limiar1)
-
-		predictions = predictions[(predictions.predito_pagina == 1)].reset_index(drop=True)
-
 		path_model = ''
 
     	model = RNA(path_model=path_model, dimension=299)
 
-    	submission_results = model.predict(df=predictions, batch_size=1, method=method) 
+    	submission_results = model.predict(df=df, batch_size=1, method=method) 
 		
 		return submission_results

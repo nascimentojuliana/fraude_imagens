@@ -25,7 +25,6 @@ class Pipeline():
 		self.mode = mode
 		self.dimension = dimension
 		
-		#self.model1 = self.load_model(self.path_model1)
 		self.path_model = ''
 
 		if self.path_model:
