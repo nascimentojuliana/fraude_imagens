@@ -55,7 +55,7 @@ class DataGenerator(tf.keras.utils.Sequence):
                 imagem = image.load_img(im, target_size=(self.dimension , self.dimension))
                 imagem = image.img_to_array(imagem)
                 imagem = np.expand_dims(imagem, axis=0)
-                imagem = imagenet_utils.preprocess_input(imagem, mode='tf')[0]
+                imagem = imagenet_utils.preprocess_input(imagem, mode='tf')
                 lst_images.append(imagem)
 
         if self.method == 'GRA':
