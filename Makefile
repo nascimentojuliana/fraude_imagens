@@ -18,9 +18,3 @@ model_rna:
 
 evaluate_models_rna: 
 	$(PYTHON_INTERPRETER) odonto/models/rna/evaluate.py
-
-predict_online_rna:
-	$(PYTHON_INTERPRETER) odonto/models/online/rna/predict.py	
-
-predict_batch_rna: 
-	$(PYTHON_INTERPRETER) odonto/models/batch/rna/predict.py

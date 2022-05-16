@@ -17,6 +17,6 @@ for method in methods:
 
     submission_results = model.predict(df=df, batch_size=1, method=method) 
 
-    submission_results.to_csv(''
+    submission_results.to_csv('')
 
     print('finalizado {}'.format(method))
